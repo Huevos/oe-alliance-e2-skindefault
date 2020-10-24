@@ -30,7 +30,7 @@ dist_install_DATA = blue_pressed.png \
     key_help.png \
     key_info.png \
     key_left.png \
-    key_next \
+    key_next.png \
     key_menu.png \
     key_ok.png \
     key_red.png \
