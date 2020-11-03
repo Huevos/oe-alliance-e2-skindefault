@@ -568,6 +568,13 @@
 			<convert type="ServiceName">Name</convert>
 		</widget>
 	</screen>
+	
+	<screen name="__InfoBarOrbPosTemplate__">
+		<widget source="session.CurrentService" render="Label" position="0,0" size="60*f,20*f" font="Bold;17*f" foregroundColor="infobar-frgrnd-on" 
+			backgroundColor="infobar-bkgrnd" transparent="1" halign="center">
+			<convert type="PliExtraInfo">OrbitalPosition</convert>
+		</widget>
+	</screen>
 
 	<screen name="__InfoBarIconsTemplate__"> <!-- position="634*f,12*f" size="296,22" -->
 		<ePixmap pixmap="icons/update_off.png" position="0,1*f" size="20*f,20*f" zPosition="0" alphatest="blend" scale="1"/>
@@ -634,28 +641,43 @@
 			<convert type="ConditionalShowHide"/>
 		</widget>
 	</screen>
+	
+	<screen name="__InfoBarSnrAgcTemplate__">
+		<eLabel text="SNR" position="0,0" size="50*f,22*f" font="Regular;18*f" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" 
+			transparent="1" halign="right" noWrap="1"/>
+		<widget source="session.FrontendStatus" render="Label" position="58*f,0" size="80*f,22*f" font="Bold;18*f" foregroundColor="infobar-frgrnd" 
+			backgroundColor="infobar_sunken" transparent="1" noWrap="1">
+			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+		<eLabel text="AGC" position="0,23*f" size="50*f,22*f" font="Regular;18*f" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" 
+			transparent="1" halign="right" noWrap="1"/>
+		<widget source="session.FrontendStatus" render="Label" position="58*f,23*f" size="80*f,22*f" font="Bold;18*f" foregroundColor="infobar-frgrnd" 
+			backgroundColor="infobar_sunken" transparent="1" noWrap="1">
+			<convert type="FrontendInfo">AGC</convert>
+		</widget>
+	</screen>
 
 	<screen name="__InfoBarRedButtonTemplate__">
-		<ePixmap pixmap="buttons/red.png" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
-		<widget name="key_red" position="35*f,0" size="130*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
+		<ePixmap pixmap="buttons/red.png" conditional="key_red" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
+		<widget name="key_red" conditional="key_red" position="35*f,0" size="130*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
 			backgroundColor="infobar_collab_back" halign="left" transparent="1" zPosition="1"/>
 	</screen>
 
 	<screen name="__InfoBarGreenButtonTemplate__">
-		<ePixmap pixmap="buttons/green.png" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
-		<widget name="key_green" position="35*f,0" size="130*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
+		<ePixmap pixmap="buttons/green.png" conditional="key_green" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
+		<widget name="key_green" conditional="key_green" position="35*f,0" size="130*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
 			backgroundColor="infobar_collab_back" halign="left" transparent="1" zPosition="1"/>
 	</screen>
 
 	<screen name="__InfoBarYellowButtonTemplate__">
-		<ePixmap pixmap="buttons/yellow.png" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
-		<widget name="key_yellow" position="35*f,0" size="130*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
+		<ePixmap pixmap="buttons/yellow.png" conditional="key_yellow" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
+		<widget name="key_yellow" conditional="key_yellow" position="35*f,0" size="130*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
 			backgroundColor="infobar_collab_back" halign="left" transparent="1" zPosition="1"/>
 	</screen>
 
 	<screen name="__InfoBarBlueButtonTemplate__">
-		<ePixmap pixmap="buttons/blue.png" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
-		<widget name="key_blue" position="35*f," size="150*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
+		<ePixmap pixmap="buttons/blue.png" conditional="key_blue" position="0,0" size="25*f,25*f" alphatest="blend" scale="1"/>
+		<widget name="key_blue" conditional="key_blue" position="35*f," size="150*f,25*f" font="Regular;20*f" foregroundColor="menu-buttons-frgrnd" 
 			backgroundColor="infobar_collab_back" halign="left" transparent="1" zPosition="1"/>
 	</screen>
 	
@@ -762,7 +784,7 @@
 		<panel position="60*f,e-30*f" size="755*f,30*f">
 			<panel name="__InfoBarButtonTemplate__"/>
 		</panel>
-		<panel position="820*f,e-30*f" size="118*f,64*f">
+		<panel position="820*f,e-30*f" size="118*f,20*f">
 			<panel name="__InfoBarTunerInfoTemplate__"/>
 		</panel>
 	</screen>
@@ -778,11 +800,9 @@
 		<panel position="43*f,e-104*f" size="104*f,63*f">
 			<panel name="__InfoBarPiconTemplate__"/>
 		</panel>
-		<widget source="session.CurrentService" render="Label" position="434*f,172*f" size="60*f,20*f" font="Bold;17*f" foregroundColor="infobar-frgrnd-on" 
-			backgroundColor="infobar-bkgrnd" transparent="1" halign="center">
-			<convert type="PliExtraInfo">OrbitalPosition</convert>
-		</widget>
-		
+		<panel position="434*f,172*f" size="60*f,20*f">
+			<panel name="__InfoBarOrbPosTemplate__"/>
+		</panel>
 		<panel position="504*f,171*f" size="296*f,22*f">
 			<panel name="__InfoBarIconsTemplate__"/>
 		</panel>
@@ -856,23 +876,13 @@
 		<panel position="153*f,e-108*f" size="647*f,70*f">
 			<panel name="__InfoBarServicesTemplate__"/>
 		</panel>
-		<eLabel text="SNR" position="812*f,258*f" size="50*f,22*f" font="Regular;18*f" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" 
-			transparent="1" halign="right" noWrap="1"/>
-		<widget source="session.FrontendStatus" render="Label" position="870*f,258*f" size="80*f,22*f" font="Bold;18*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar_sunken" transparent="1" noWrap="1">
-			<convert type="FrontendInfo">SNR</convert>
-		</widget>
-		<eLabel text="AGC" position="812*f,281*f" size="50*f,22*f" font="Regular;18*f" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" 
-			transparent="1" halign="right" noWrap="1"/>
-		<widget source="session.FrontendStatus" render="Label" position="870*f,281*f" size="80*f,22*f" font="Bold;18*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar_sunken" transparent="1" noWrap="1">
-			<convert type="FrontendInfo">AGC</convert>
-		</widget>
-		
+		<panel position="808*f,e-92*f" size="138*f,46*f">
+		 	<panel name="__InfoBarSnrAgcTemplate__"/>
+		</panel>
 		<panel position="60*f,e-30*f" size="755*f,30*f">
 			<panel name="__InfoBarButtonTemplate__"/>
 		</panel>
-		<panel position="820*f,e-30*f" size="118*f,64*f">
+		<panel position="820*f,e-30*f" size="118*f,20*f">
 			<panel name="__InfoBarTunerInfoTemplate__"/>
 		</panel>
 	</screen>
@@ -897,7 +907,7 @@
 		<panel position="60*f,e-30*f" size="755*f,30*f">
 			<panel name="__InfoBarButtonTemplate__"/>
 		</panel>
-		<panel position="820*f,e-30*f" size="118*f,64*f">
+		<panel position="820*f,e-30*f" size="118*f,20*f">
 			<panel name="__InfoBarTunerInfoTemplate__"/>
 		</panel>
 	</screen>
@@ -990,9 +1000,9 @@
 			foregroundColor="infobar_service_frgrnd" backgroundColor="infobar_sunken" transparent="1">
 			<convert type="ServicePosition">Position,ShowHours</convert>
 		</widget>
-		<ePixmap position="80*f,90*f" size="563*f,18*f" pixmap="icons/Mediaplayerbar_gray.png" alphatest="blend" scale="1"/>
+		<ePixmap position="80*f,90*f" size="563*f,18*f" pixmap="infobar/Mediaplayerbar_gray.png" alphatest="blend" scale="1"/>
 		<widget source="session.CurrentService" render="PositionGauge" position="80*f,83*f" size="563*f,25*f" zPosition="2" 
-			pointer="icons/Mediaplayerbar_purple.png:563*f,0" transparent="1">
+			pointer="infobar/Mediaplayerbar_purple.png:563*f,0" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="540*f,115*f" size="95*f,20*f" font="Regular;18*f" halign="right" valign="center" 
@@ -1000,178 +1010,84 @@
 			<convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
 		</widget>
 	</screen>
-	<screen name="RadioInfoBar" flags="wfNoBorder" position="center,548" size="843,162" backgroundColor="transparent">
-		<ePixmap position="0,0" zPosition="-1" size="843,162" pixmap="infobar/radio-infobar-bg.png"/>
-		<widget source="session.CurrentService" render="Label" position="44,8" size="520,34" font="Boldit;30" backgroundColor="infobar-frgrnd-on" foregroundColor="infobar_service_frgrnd" transparent="1" valign="top" halign="left" noWrap="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="345,14" size="60,20" font="Bold;17" backgroundColor="infobar-bkgrnd" foregroundColor="infobar-frgrnd" transparent="1" halign="center">
-			<convert type="ServiceOrbitalPosition"/>
-		</widget>
-		<ePixmap pixmap="icons/icon_update_off.png" position="409,12" size="20,20" zPosition="0" alphatest="blend"/>
-		<widget source="global.OnlineStableUpdateState" render="Pixmap" pixmap="icons/icon_stableupdate.png" position="409,12" size="20,20" zPosition="1" alphatest="blend">
-			<convert type="ConditionalShowHide">Blink</convert>
-		</widget>
-		<widget source="global.OnlineUnstableUpdateState" render="Pixmap" pixmap="icons/icon_unstableupdate.png" position="409,12" size="20,20" zPosition="1" alphatest="blend">
-			<convert type="ConditionalShowHide">Blink</convert>
-		</widget>
-		<ePixmap pixmap="icons/icon_rec_off.png" position="433,13" size="31,17" zPosition="0" alphatest="blend"/>
-		<widget source="session.RecordState" render="Pixmap" pixmap="icons/icon_rec.png" position="433,13" size="31,17" zPosition="1" alphatest="blend">
-			<convert type="ConditionalShowHide">Blink</convert>
-		</widget>
-		<ePixmap pixmap="icons/icon_hd_off.png" position="467,11" size="29,20" zPosition="1" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_hd_on.png" position="467,11" size="29,20" zPosition="2" alphatest="blend">
-			<convert type="ServiceInfo">VideoWidth</convert>
-			<convert type="ValueRange">721,1980</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<ePixmap pixmap="icons/icon_format_off.png" position="500,14" zPosition="0" size="28,15" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_format.png" position="500,14" size="28,15" zPosition="1" alphatest="blend">
-			<convert type="ServiceInfo">IsWidescreen</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<ePixmap pixmap="icons/icon_dolby_off.png" position="534,14" zPosition="0" size="25,15" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_dolby.png" position="534,14" size="25,15" zPosition="1" alphatest="blend">
-			<convert type="ServiceInfo">IsMultichannel</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<ePixmap pixmap="icons/icon_crypt_off.png" position="564,14" zPosition="0" size="11,15" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_crypt.png" position="564,14" size="11,15" zPosition="1" alphatest="blend">
-			<convert type="ServiceInfo">IsCrypted</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<ePixmap pixmap="icons/icon_txt_off.png" position="580,14" zPosition="0" size="18,15" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_txt.png" position="580,14" size="18,15" zPosition="1" alphatest="blend">
-			<convert type="ServiceInfo">HasTelext</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<ePixmap pixmap="icons/clock.png" position="590,12" zPosition="1" size="20,20" alphatest="blend"/>
-		<widget source="global.CurrentTime" render="Label" position="608,14" zPosition="1" size="59,20" font="Regular;21" foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
+	<screen name="RadioInfoBar" flags="wfNoBorder" position="center,562*f" size="974*f,148*f" title="InfoBar" backgroundColor="transparent">
+		<ePixmap position="0,0" size="974*f,148*f" pixmap="infobar/1stinfobar.png" alphatest="on" zPosition="-1" scale="1"/>
+		<panel position="44*f,e-142*f" size="625*f,34*f">
+			<panel name="__InfoBarServiceNameTemplate__"/>
+		</panel>
+		<panel position="334*f,e-134*f" size="60*f,20*f">
+			<panel name="__InfoBarOrbPosTemplate__"/>
+		</panel>
+		<panel position="400*f,e-137*f" size="296*f,22*f">
+			<panel name="__InfoBarIconsTemplate__"/>
+		</panel>
+		<ePixmap pixmap="icons/clock.png" position="700*f,12*f" zPosition="1" size="20*f,20*f" alphatest="blend" scale="1"/>
+		<widget source="global.CurrentTime" render="Label" position="724*f,e-137*f" zPosition="1" size="55*f,20*f" font="Regular;21*f" foregroundColor="infobar-frgrnd" 
+			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="668,18" zPosition="1" size="35,18" font="Regular;17" foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="780*f,e-134*f" zPosition="1" size="35*f,18*f" font="Regular;17*f" foregroundColor="infobar-frgrnd" 
+			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format::%S</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="700,16" zPosition="1" size="115,20" font="Regular;18" foregroundColor="infobar-frgrnd" halign="center" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="816*f,e-137*f" zPosition="1" size="115*f,20*f" font="Regular;18*f" foregroundColor="infobar-frgrnd" 
+			halign="center" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format:%a %d/%m/%y</convert>
 		</widget>
-		<widget source="session.CurrentService" render="PiconBg" position="43,88" size="104,63" transparent="0" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Picon" position="45,89" size="100,60" transparent="0" alphatest="blend">
-			<convert type="ServiceName">Reference</convert>
-		</widget>
-		<ePixmap pixmap="infobar/statusbar_bkgrd.png" position="686,50" size="100,10" zPosition="0" alphatest="blend"/>
-		<widget source="session.Event_Now" render="Progress" position="687,50" size="98,10" pixmap="progress_small.png" backgroundColor="infobar-bkgrnd" 
-			transparent="1" zPosition="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<eLabel text="SNR" position="672,66" size="50,22" font="Regular;18" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" transparent="1" halign="right" noWrap="1"/>
-		<widget source="session.FrontendStatus" render="Label" position="730,66" size="80,22" font="Bold;18" foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1" noWrap="1">
-			<convert type="FrontendInfo">SNR</convert>
-		</widget>
-		<eLabel text="AGC" position="672,84" size="50,22" font="Regular;18" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" transparent="1" halign="right" noWrap="1"/>
-		<widget source="session.FrontendStatus" render="Label" position="730,84" size="80,22" font="Bold;18" foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1" noWrap="1">
-			<convert type="FrontendInfo">AGC</convert>
-		</widget>
-		<widget source="session.Event_Now" render="Label" position="55,50" size="70,24" font="Regular;22" foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1" noWrap="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="session.Event_Now" render="Label" position="130,50" size="430,24" font="Regular;22" noWrap="1" foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="session.Event_Now" render="Label" position="460,50" size="200,24" font="Regular;22" foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" halign="right" transparent="1" noWrap="1">
-			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
-		</widget>
-		<widget source="session.Event_Next" render="Label" position="55,75" size="70,24" font="Regular;22" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" transparent="1" noWrap="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="session.Event_Next" render="Label" position="130,75" size="430,24" font="Regular;22" noWrap="1" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" transparent="1">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="session.Event_Next" render="Label" position="460,75" size="200,24" font="Regular;22" foregroundColor="infobar_sunken_frgnd_dark" backgroundColor="infobar_sunken" halign="right" transparent="1" noWrap="1">
-			<convert type="EventTime">Duration</convert>
-			<convert type="ClockToText">InMinutes</convert>
-		</widget>
-		<eLabel text="Tuner" position="837,164" size="60,20" font="Regular;20" foregroundColor="infobar-frgrnd" backgroundColor="infobar_collab_back" transparent="1"/>
-		<widget source="session.TunerInfo" render="FixedLabel" text="A" position="895,164" size="14,18" font="Bold;20" foregroundColor="infobar_tuner_rec" backgroundColor="infobar_collab_back" halign="center" zPosition="1" transparent="1">
-			<convert type="TunerInfo">TunerUseMask</convert>
-			<convert type="ValueBitTest">1</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.TunerInfo" render="FixedLabel" text="B" position="908,164" size="14,18" font="Bold;20" foregroundColor="infobar_tuner_rec" backgroundColor="infobar_collab_back" halign="center" zPosition="1" transparent="1">
-			<convert type="TunerInfo">TunerUseMask</convert>
-			<convert type="ValueBitTest">2</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.TunerInfo" render="FixedLabel" text="C" position="921,164" size="14,18" font="Bold;20" foregroundColor="infobar_tuner_rec" backgroundColor="infobar_collab_back" halign="center" zPosition="1" transparent="1">
-			<convert type="TunerInfo">TunerUseMask</convert>
-			<convert type="ValueBitTest">4</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.TunerInfo" render="FixedLabel" text="D" position="934,164" size="14,18" font="Bold;20" foregroundColor="infobar_tuner_rec" backgroundColor="infobar_collab_back" halign="center" zPosition="1" transparent="1">
-			<convert type="TunerInfo">TunerUseMask</convert>
-			<convert type="ValueBitTest">8</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.FrontendInfo" render="FixedLabel" text="A" position="895,164" size="14,18" font="Bold;20" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" halign="center" zPosition="2" transparent="1">
-			<convert type="FrontendInfo">NUMBER</convert>
-			<convert type="ValueRange">0,0</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.FrontendInfo" render="FixedLabel" text="B" position="908,164" size="14,18" font="Bold;20" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" halign="center" zPosition="2" transparent="1">
-			<convert type="FrontendInfo">NUMBER</convert>
-			<convert type="ValueRange">1,1</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.FrontendInfo" render="FixedLabel" text="C" position="921,164" size="14,18" font="Bold;20" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" halign="center" zPosition="2" transparent="1">
-			<convert type="FrontendInfo">NUMBER</convert>
-			<convert type="ValueRange">2,2</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="session.FrontendInfo" render="FixedLabel" text="D" position="934,164" size="14,18" font="Bold;20" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" halign="center" zPosition="2" transparent="1">
-			<convert type="FrontendInfo">NUMBER</convert>
-			<convert type="ValueRange">3,3</convert>
-			<convert type="ConditionalShowHide"/>
-		</widget>
-		<widget source="RdsDecoder" render="Pixmap" pixmap="icons/rass_logo.png" position="270,0" size="50,21" alphatest="on">
+		<panel position="43*f,e-104*f" size="104*f,63*f">
+			<panel name="__InfoBarPiconTemplate__"/>
+		</panel>
+		<panel position="153*f,e-108*f" size="647*f,70*f">
+			<panel name="__InfoBarServicesTemplate__"/>
+		</panel>
+		<panel position="808*f,e-92*f" size="138*f,46*f">
+		 	<panel name="__InfoBarSnrAgcTemplate__"/>
+		</panel>
+		<panel position="820*f,e-30*f" size="118*f,20*f">
+			<panel name="__InfoBarTunerInfoTemplate__"/>
+		</panel>
+		<widget source="RdsDecoder" render="Pixmap" pixmap="icons/rass_logo.png" position="44*f,e-31*f" size="50*f,21*f" alphatest="on" scale="1">
 			<convert type="RdsInfo">RasInteractiveAvailable</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="RdsDecoder" render="Label" position="43,113" size="620,30" font="LCD;20" backgroundColor="#00d9dee2" transparent="1" halign="center" valign="center" foregroundColor="foreground">
+		<widget source="RdsDecoder" render="Label" position="100*f,e-30*f" size="620*f,30*f" font="LCD;20*f" backgroundColor="#00d9dee2" transparent="1" halign="center" valign="center" foregroundColor="foreground">
 			<convert type="RdsInfo">RadioText</convert>
 		</widget>
 	</screen>
-	<screen name="MediaPlayer" position="0,0" size="1280,720" backgroundColor="black" flags="wfNoBorder">
-		<panel name="__FullscreenTopPanel__"/>
-		<eLabel name="Filelist" position="20,75" size="110,22" text="File List" font="Italic;22" foregroundColor="infobar_service_frgrnd" transparent="1"/>
-		<eLabel position="18,100" size="604,556" zPosition="0" backgroundColor="menu-title-frgrnd"/>
-		<widget name="filelist" position="20,102" size="600,552" zPosition="3" scrollbarMode="showOnDemand" selectionPixmap="buttons/FocusBar_H25x600.png" foregroundColor="window-fg" backgroundColor="black" transparent="0"/>
-		<eLabel name="Playlist" position="650,75" size="110,22" text="Play List" font="Italic;22" foregroundColor="infobar_service_frgrnd" transparent="1"/>
-		<eLabel position="648,100" size="604,406" zPosition="0" backgroundColor="menu-title-frgrnd"/>
-		<widget name="playlist" position="650,102" size="600,402" zPosition="3" scrollbarMode="showOnDemand" selectionPixmap="buttons/FocusBar_H25x600.png" foregroundColor="window-fg" backgroundColor="black" transparent="0"/>
-		<widget name="currenttext" position="465,120" size="0,0"/>
-		<widget name="titletext" position="465,120" size="0,0"/>
-		<widget name="coverArt" position="650,525" size="102,102" pixmap="no_coverArt.png" transparent="1" alphatest="blend"/>
-		<widget name="artisttext" position="774,525" size="74,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="artist" position="854,525" size="315,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="albumtext" position="774,550" size="74,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="album" position="854,550" size="315,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="yeartext" position="774,575" size="74,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="year" position="854,575" size="150,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="genretext" position="774,600" size="74,22" font="Regular;20" valign="top" transparent="1"/>
-		<widget name="genre" position="854,600" size="150,22" font="Regular;20" valign="top" transparent="1"/>
-		<ePixmap pixmap="icons/Mediaplayerbar_gray.png" zPosition="2" position="650,635" size="563,18" alphatest="blend"/>
-		<widget name="PositionGauge" position="650,633" size="963,18" pointer="infobar/Mediaplayerbar_purple.png:563,0" seek_pointer="infobar/Mediaplayerbar_purple.png:563,0" zPosition="3" transparent="1"/>
-		<widget name="repeat" position="1190,620" size="23,20" pixmaps="icons/ico_noreplay.png,icons/ico_replay.png" transparent="1" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Label" position="650,654" size="120,18" foregroundColor="#009f40ca" font="Italic;18" halign="left" valign="center" transparent="1">
+	<screen name="MediaPlayer" position="0,0" size="e,e" backgroundColor="black" flags="wfNoBorder">
+		<panel name="__PigLessTemplate__"/>
+		<eLabel name="Filelist" position="20*f,75*f" size="110*f,22*f" text="File List" font="Italic;22*f" foregroundColor="infobar_service_frgrnd" transparent="1"/>
+		<eLabel position="18*f,100*f" size="604*f,556*f" zPosition="0" backgroundColor="menu-title-frgrnd"/>
+		<widget name="filelist" position="20*f,102*f" size="600*f,552*f" zPosition="3" scrollbarMode="showOnDemand" selectionPixmap="buttons/FocusBar_H25x600.png" 
+			foregroundColor="window-fg" backgroundColor="black" transparent="0"/>
+		<eLabel name="Playlist" position="650*f,7*f5" size="110*f,22*f" text="Play List" font="Italic;22*f" foregroundColor="infobar_service_frgrnd" transparent="1"/>
+		<eLabel position="648*f,100*f" size="604*f,406*f" zPosition="0" backgroundColor="menu-title-frgrnd"/>
+		<widget name="playlist" position="650*f,102*f" size="600*f,402*f" zPosition="3" scrollbarMode="showOnDemand" selectionPixmap="buttons/FocusBar_H25x600.png" 
+			foregroundColor="window-fg" backgroundColor="black" transparent="0"/>
+		<widget name="currenttext" position="465*f,120*f" size="0,0"/>
+		<widget name="titletext" position="465*f,120*f" size="0,0"/>
+		<widget name="coverArt" position="650*f,525*f" size="102*f,102*f" pixmap="no_coverArt.png" transparent="1" alphatest="blend" scale="1"/>
+		<widget name="artisttext" position="774*f,525*f" size="74*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="artist" position="854*f,525*f" size="315*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="albumtext" position="774*f,550*f" size="74*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="album" position="854*f,550*f" size="315*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="yeartext" position="774*f,575*f" size="74*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="year" position="854*f,575*f" size="150*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="genretext" position="774*f,600*f" size="74*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<widget name="genre" position="854*f,600*f" size="150*f,22*f" font="Regular;20*f" valign="top" transparent="1"/>
+		<ePixmap pixmap="infobar/Mediaplayerbar_gray.png" zPosition="2" position="650*f,635*f" size="563*f,18*f" alphatest="blend" scale="1"/>
+		<widget name="PositionGauge" position="650*f,633*f" size="563*f,18*f" pointer="infobar/Mediaplayerbar_purple.png:563*f,0" 
+			seek_pointer="infobar/Mediaplayerbar_purple.png:563*f,0" zPosition="3" transparent="1"/>
+		<widget name="repeat" position="1190*f,620*f" size="26*f,20*f" pixmaps="icons/ico_noreplay.png,icons/ico_replay.png" transparent="1" alphatest="blend"/>
+		<widget source="session.CurrentService" render="Label" position="650*f,654*f" size="120*f,18*f" foregroundColor="#009f40ca" font="Italic;18*f" halign="left" 
+			valign="center" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="1170,654" size="120,18" font="Italic;18" halign="left" valign="center" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="1170*f,654*f" size="120*f,18*f" font="Italic;18*f" halign="left" valign="center" 
+			transparent="1">
 			<convert type="ServicePosition">Remaining</convert>
 		</widget>
-		<ePixmap pixmap="buttons/key_menu.png" position="20,686" size="35,25" alphatest="blend" transparent="1" zPosition="1"/>
+		<panel name="__KeyMenuTemplate__"/>
 	</screen>
 
 	<!-- Timer Screens -->
@@ -1556,16 +1472,13 @@
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 	</screen>
-	<screen name="ChannelSelectionRadio" position="center,100" size="660,400" backgroundColor="window-bg" transparent="0">
-		<widget name="list" position="0,0" size="660,324" zPosition="3" scrollbarMode="showOnDemand" foregroundColor="window-fg" backgroundColor="window-bg" foregroundColorEvent="darkgrey" foregroundColorEventSelected="menu-title-frgrnd" foregroundColorServiceNotAvail="#2c2c2c" serviceItemHeight="36" serviceNumberFont="Regular;24" serviceNameFont="Regular;24" serviceInfoFont="Regular;21" transparent="0"/>
-		<ePixmap pixmap="buttons/red.png" position="0,345" size="24,24" alphatest="blend" transparent="1"/>
-		<ePixmap pixmap="buttons/green.png" position="0,375" size="24,24" alphatest="blend" transparent="1"/>
-		<ePixmap pixmap="buttons/yellow.png" position="240,345" size="24,24" alphatest="blend" transparent="1"/>
-		<ePixmap pixmap="buttons/blue.png" position="240,375" size="24,24" alphatest="blend" transparent="1"/>
-		<widget name="key_red" position="35,351" size="190,24" zPosition="1" font="Regular;20" halign="left" transparent="0" valign="center" backgroundColor="window-bg"/>
-		<widget name="key_green" position="35,381" size="190,24" zPosition="1" font="Regular;20" halign="left" transparent="0" valign="center" backgroundColor="window-bg"/>
-		<widget name="key_yellow" position="275,351" size="190,24" zPosition="1" font="Regular;20" halign="left" transparent="0" valign="center" backgroundColor="window-bg"/>
-		<widget name="key_blue" position="275,381" size="190,24" zPosition="1" font="Regular;20" halign="left" transparent="0" valign="center" backgroundColor="window-bg"/>
+	<screen name="ChannelSelectionRadio" position="center,76*f" size="900*f,450*f" backgroundColor="window-bg" transparent="0">
+		<widget name="list" position="0,0" size="880*f,420*f" backgroundColor="window-bg" foregroundColorEvent="event-frgrnd" 
+			foregroundColorEventSelected="#00202020" foregroundColorServiceNotAvail="verydarkgrey" serviceNumberFont="Regular;25*f" 
+			serviceNameFont="Regular;25*f" serviceInfoFont="Bold;22*f" transparent="0" zPosition="3" scrollbarMode="showOnDemand"/>
+		<panel position="70*f,e-24*f" size="755*f,30*f">
+			<panel name="__InfoBarButtonTemplate__"/>
+		</panel>
 	</screen>
 	<screen name="ChoiceBox" title="" position="fill" flags="wfNoBorder">
 		<panel name="__PigTemplate__"/>
@@ -1832,26 +1745,17 @@ self.autoResize()
 		<ePixmap pixmap="buttons/red.png" position="40,663" size="24,24" alphatest="blend" transparent="1"/>
 		<widget name="initializetext" position="75,663" size="190,24" zPosition="1" font="Regular;20" foregroundColor="menu-buttons-frgrnd" backgroundColor="menu-buttons-bkgrnd1" halign="left" transparent="1" valign="center"/>
 	</screen>
-	<screen name="HelpMenu" position="fill" flags="wfNoBorder">
-		<panel name="__PigTemplate__"/>
-		<widget name="list" position="10*f,82*f" size="506*f,576*f" zPosition="10" transparent="1" scrollbarMode="showOnDemand"/>
-		<widget name="rc" position="(607*f)-77,80*f" size="154,500" zPosition="10" pixmaps="rc.png,rcold.png" alphatest="on" scale="1"/>
-		<widget name="arrowdown" pixmap="arrowdown.png" position="-150,-150" size="55,105" zPosition="11" alphatest="on" scale="1"/>
-		<widget name="arrowdown2" pixmap="arrowdown.png" position="-150,-150" size="55,105" zPosition="11" alphatest="on" scale="1"/>
-		<widget name="arrowup" pixmap="arrowup.png" position="-150,-150" size="55,105" zPosition="11" alphatest="on" scale="1"/>
-		<widget name="arrowup2" pixmap="arrowup.png" position="-150,-150" size="55,105" zPosition="11" alphatest="on" scale="1"/>
-		<widget name="long_key" position="1590,922" size="375,30" foregroundColor="yellow" font="Regular;24" halign="center"/>
-	</screen>
-	<!-- <screen name="HelpMenu" position="0,0" size="1280*f,720*f" flags="wfNoBorder">
+	<screen name="HelpMenu" position="0,0" size="1280*f,720*f" flags="wfNoBorder">
 		<panel name="__HelpMenuOld__" conditional="arrowdown"/>
 		<panel name="__HelpMenuNew__" conditional="indicator_u0"/>
 	</screen>
-	<screen name="__HelpMenuOld__" position="0,0" size="1280*f,720*f" flags="wfNoBorder">
-		<panel name="__FullscreenTopPanel__"/>
-		<panel name="__FullscreenTitlePanel__"/>
-		<widget name="list" position="60*f,150*f" size="503*f,456*f" transparent="0" scrollbarMode="showOnDemand"/>
-		<panel name="__RcPanel__"/>
-		<widget name="long_key" position="760*f,600*f" size="180*f,40*f" font="Regular;20*f" halign="right" foregroundColor="yellow" transparent="0"/>
+	<screen name="__HelpMenuOld__" position="fill" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget name="list" position="10*f,82*f" size="506*f,560*f" zPosition="10" scrollbarMode="showOnDemand"/>
+		<panel conditional="arrowdown" position="(607*f)-77,80*f" size="154,500">
+			<panel name="__RcPanelOld__"/>
+		</panel>
+		<widget name="long_key" position="530*f,600*f" size="160*f,30*f" font="Regular,20*f" halign="center" foregroundColor="yellow"/>
 	</screen>
 	<screen name="__HelpMenuNew__" position="0,0" size="1280*f,720*f" flags="wfNoBorder">
 		<panel name="__FullscreenTopPanel__" />
@@ -1970,52 +1874,55 @@ self.autoResize()
 		<panel name="__RcPanel__"/>
 		<widget name="longshift_key0" position="660*f,600*f" size="280*f,25*f" font="Regular;20*f" halign="right" foregroundColor="yellow" transparent="0"/>
 		<widget name="longshift_key1" position="660*f,625*f" size="280*f,25*f" font="Regular;20*f" halign="right" foregroundColor="yellow" transparent="0"/>
-	</screen> -->
+	</screen>
 	<screen name="__RcPanel__" position="fill" flags="wfNoBorder">
-		<panel name="__RcPanelOld__" conditional="arrowdown"/>
+		<panel conditional="arrowdown" position="950,140" size="154,500">
+			<panel name="__RcPanelOld__" conditional="arrowdown"/>
+		</panel>
 		<panel name="__RcPanelNew__" conditional="indicator_u0"/>
 	</screen>
-	<screen name="__RcPanelOld__" position="fill" flags="wfNoBorder">
-		<widget name="rc" pixmaps="rc.png,rcold.png" position="950*f,140*f" zPosition="10" size="154*f,500*f" alphatest="blend" transparent="0" scale="1"/>
-		<widget name="arrowdown" pixmap="arrowdown.png" position="-100,-100" zPosition="11" size="37*f,70*f" alphatest="blend" scale="1"/>
-		<widget name="arrowdown2" pixmap="arrowdown.png" position="-100,-100" zPosition="11" size="37*f,70*f" alphatest="blend" scale="1"/>
-		<widget name="arrowup" pixmap="arrowup.png" position="-100,-100" zPosition="11" size="37*f,70*f" alphatest="blend" scale="1"/>
-		<widget name="arrowup2" pixmap="arrowup.png" position="-100,-100" zPosition="11" size="37*f,70*f" alphatest="blend" scale="1"/>
+	<screen name="__RcPanelOld__">
+		<widget name="rc" position="0,0" size="154,500" zPosition="10" pixmaps="rc.png,rcold.png" alphatest="on" 
+			backgroundColor="black" transparent="1"/>
+		<widget name="arrowdown" pixmap="arrowdown.png" position="-100,-100" size="37,70" zPosition="11" alphatest="on"/>
+		<widget name="arrowdown2" pixmap="arrowdown.png" position="-100,-100" size="37,70" zPosition="11" alphatest="on"/>
+		<widget name="arrowup" pixmap="arrowup.png" position="-100,-100" size="37,70" zPosition="11" alphatest="on"/>
+		<widget name="arrowup2" pixmap="arrowup.png" position="-100,-100" size="37,70" zPosition="11" alphatest="on"/>
 	</screen>
-	<screen name="RcPanelNew" position="fill" flags="wfNoBorder">
-		<widget name="rc" pixmaps="rc.png,rcold.png" position="950*f,140*f" zPosition="10" size="154,500" alphatest="blend" transparent="0" />
-		<widget alphatest="blend" name="indicator_u0" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u1" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u2" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u3" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u4" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u5" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u6" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u7" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u8" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u9" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u10" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u11" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u12" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u13" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u14" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_u15" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l0" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l1" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l2" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l3" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l4" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l5" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l6" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l7" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l8" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l9" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l10" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l11" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l12" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l13" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l14" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
-		<widget alphatest="blend" name="indicator_l15" pixmap="skin_default/yellow_circle23x23.png" position="950*f,140*f" offset="11,11" size="23*f,23*f" zPosition="11" scale="1"/>
+	<screen name="__RcPanelNew__" position="fill" flags="wfNoBorder">
+		<widget name="rc" pixmaps="rc.png,rcold.png" position="950,140" zPosition="10" size="154,500" alphatest="blend" transparent="0" />
+		<widget alphatest="blend" name="indicator_u0" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u1" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u2" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u3" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u4" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u5" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u6" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u7" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u8" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u9" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u10" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u11" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u12" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u13" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u14" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_u15" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l0" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l1" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l2" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l3" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l4" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l5" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l6" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l7" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l8" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l9" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l10" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l11" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l12" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l13" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l14" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
+		<widget alphatest="blend" name="indicator_l15" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11" scale="1"/>
 	</screen>
 	<screen name="Ipkg" position="center,center" size="550,120">
 		<widget name="activityslider" position="0,0" size="550,5" pixmap="progress_small.png"/>
@@ -2722,7 +2629,7 @@ self.autoResize()
 		<widget name="QuestionPixmap" pixmap="icons/input_question.png" position="100,140" size="53,53" alphatest="blend"/>
 		<widget name="InfoPixmap" pixmap="icons/input_info.png" position="100,140" size="53,53" alphatest="blend"/>
 		<widget name="list" position="150,400" size="730,220" transparent="1" backgroundColor="black"/>
-		<widget name="rc" pixmap="rc.png" position="950*f,140*f" zPosition="10" size="154,500" transparent="0" alphatest="blend"/>
+		<widget name="rc" pixmap="rc.png" position="950,140" zPosition="10" size="154,500" transparent="0" alphatest="blend"/>
 		<ePixmap pixmap="screens/fs-bg-bot-wizzard.png" position="0,645" size="1280,75" alphatest="on" transparent="1" zPosition="-1"/>
 	</screen>
 	<screen name="InstallWizardIpkgUpdater" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="black">
