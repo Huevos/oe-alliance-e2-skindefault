@@ -370,7 +370,7 @@
 	</screen>
 	
 	<screen name="__HelpWindowTemplate__">
-		<widget name="HelpWindow" conditional="HelpWindow" pixmap="buttons/vkey_icon.png" position="3,310" zPosition="1" size="1,1" transparent="1" alphatest="on" scale="1"/>
+		<widget name="HelpWindow" conditional="HelpWindow" pixmap="buttons/vkey_icon.png" position="788*f,278*f" zPosition="1" size="1,1" transparent="0" alphatest="on" scale="1"/>
 	</screen>
 
 	<screen name="__MenuListTemplate__" position="fill" flags="wfNoBorder">
@@ -394,6 +394,16 @@
 			borderWidth="2" valign="center" halign="center"/>
 		<widget name="servicename" position="0,40*f" size="434*f,60*f" backgroundColor="transparent" transparent="1" font="Regular;30*f" 
 			borderColor="black" borderWidth="2" valign="center" halign="center"/>
+	</screen>
+	
+	<screen name="EmergencySkinCoordinates_Setup" position="fill" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget source="footnote" render="Label" position="695*f,643*f" zPosition="1000" size="575*f,30*f" font="Regular;20*f" 
+			backgroundColor="verydarkgrey" valign="center" halign="center"/>
+		<widget source="description" render="Label" position="695*f, 410*f"  size="575*f, 232*f" font="Regular;20*f" 
+			backgroundColor="verydarkgrey" valign="center" halign="center"/>
+		<widget name="listarea" render="Label" position="10*f,82*f" size="660*f,570*f" font="Regular;24*f"  
+			backgroundColor="verydarkgrey" valign="center" halign="center"/>
 	</screen>
 
 
@@ -1106,7 +1116,25 @@
 		<panel name="MenuYellow1Panel"/>
 		<panel name="MenuBlue1Panel"/>
 	</screen>
-	<screen name="TimerEdit" position="70,130" size="590,335">
+	
+	<screen name="CronTimers" position="fill" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget name="lab1" position="695*f,480*f" size="225,30*f" font="Regular;30*f" valign="center" transparent="0"/>
+		<widget name="labdisabled" position="885*f,480*f" size="375,30*f" font="Regular;30*f" valign="center" halign="center" backgroundColor="red"/>
+		<widget name="labactive" position="885*f,480*f" size="375,30*f" zPosition="1" font="Regular;30*f" valign="center" halign="center" backgroundColor="green"/>
+		<widget name="lab2" position="695*f,550*f" size="225,26*f" font="Regular;30*f" valign="center" transparent="0"/>
+		<widget name="labstop" position="885*f,550*f" size="375,26*f" font="Regular;30*f" valign="center" halign="center" backgroundColor="red"/>
+		<widget name="labrun" position="885*f,550*f" size="375,26*f" zPosition="1" font="Regular;30*f" valign="center" halign="center" backgroundColor="green"/>
+		position="10*f,82*f" size="660*f,570*f"
+		<widget name="key" position="10*f,82*f" size="660*f,24*f" font="Regular;20*f" halign="center" transparent="1" valign="center" backgroundColor="background"/>
+		<widget source="list" render="Listbox" position="100*f,122*f" size="660*f,472*f" font="Regular;26" halign="center" scrollbarMode="showOnDemand" 
+			selectionDisabled="0">
+			<convert type="StringList"/>
+		</widget>
+		<panel name="__FootnoteTemplate__"/>
+	</screen>
+	
+	<screen name="TimerEdit" position="70,130" size="590,335"><!-- What is this? -->
 		<widget name="description" position="10,10" size="580,40" font="Regular;25" transparent="1"/>
 		<widget name="lbegin" position="405,102" size="103,30" font="Regular;25" foregroundColor="red" transparent="1"/>
 		<widget name="lend" position="405,158" size="103,30" font="Regular;25" foregroundColor="green" transparent="1"/>
@@ -1114,51 +1142,46 @@
 		<widget name="end" position="508,150" size="72,35" font="Regular;25" transparent="1"/>
 		<widget name="apply" position="10,240" size="250,35" transparent="1"/>
 	</screen>
-	<screen name="TimerEditList" position="center,center" size="560,550">
-		<widget name="timerlist" position="0,0" size="560,384" itemHeight="48" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" scrollbarMode="showOnDemand" enableWrapAround="1"/>
-		<widget name="description" position="0,e-155" size="560,115" font="Regular;18" halign="center" valign="center" transparent="0"/>
-		<panel name="ButtonBarAuto1Panel"/>
-		<ePixmap pixmap="buttons/key_info.png" position="525,485" size="35,25" alphatest="blend" transparent="1" zPosition="2"/>
+	<screen name="TimerEditList" position="fill" title="Timer Overview" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<panel name="__KeyInfoTemplate__"/>Position 10*f,82*f; size 660*f,570*f
+		<widget name="timerlist" position="10*f,82*f" size="660*f,570*f" scrollbarMode="showOnDemand" itemHeight="60*f" rowSplit="30*f" iconMargin="10*f"
+			setEventNameFont="Regular;22*f" setServiceNameFont="Regular;22*f" setFont="Regular;20*f" satPosLeft="166*f" zPosition="2" foregroundColor="window-fg"/>
+		<panel name="__DescriptionTemplate__"/>
 	</screen>
-	<screen name="TimerEntry" position="center,center" size="560,550">
-		<widget name="config" position="0,0" size="560,336" itemHeight="25" font="Regular;22" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" scrollbarMode="showOnDemand" enableWrapAround="1"/>
-		<widget name="HelpWindow" pixmap="buttons/vkey_icon.png" position="450,360" zPosition="1" size="1,1" transparent="1" alphatest="on"/>
-		<widget name="description" position="10,e-135" size="550,90" font="Regular;18" halign="center" valign="center" backgroundColor="window-bg" transparent="1"/>
-		<widget name="cancel" pixmap="buttons/red.png" position="0,e-40" size="140,40" alphatest="on"/>
-		<widget name="canceltext" position="0,e-40" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1"/>
-		<widget name="ok" pixmap="buttons/green.png" position="140,e-40" size="140,40" alphatest="on"/>
-		<widget name="oktext" position="140,e-40" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1"/>
+	<screen name="TimerEntry"  position="fill" flags="wfNoBorder">
+		<panel name="__SetupTemplate__"/>
 	</screen>
-	<screen name="TimerLog" position="209,100" size="845,520" backgroundColor="window-bg">
-		<widget name="loglist" position="50,0" size="740,300" scrollbarMode="showOnDemand"/>
-		<widget name="logentry" position="50,320" size="740,150" font="Regular;20" backgroundColor="window-bg" transparent="0"/>
-		<panel name="MenuRed1Panel"/>
-		<panel name="MenuGreen1Panel"/>
-		<panel name="MenuYellow1Panel"/>
-		<panel name="MenuBlue1Panel"/>
+	<screen name="TimerLog" position="fill" title="Timer Overview" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget name="loglist" position="10*f,82*f" size="660*f,560*f" itemHeight="34*f" scrollbarMode="showOnDemand" font="Regular;22*f"/>
+		<widget name="logentry" position="695*f, 410*f"  size="575*f, 232*f" font="Regular;20*f" valign="top" halign="block"/>
 	</screen>
-	<screen name="TimerSanityConflict" position="center,center" size="560,550">
-		<widget name="timer1" position="0,0" size="560,50" selectionDisabled="1" scrollbarMode="showNever"/>
-		<widget name="timer2" position="10,213" size="503,50" selectionDisabled="1" scrollbarMode="showNever"/>
-		<widget name="list" position="10,303" size="503,325" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" scrollbarMode="showOnDemand"/>
-		<panel name="MenuRed1Panel"/>
-		<panel name="MenuGreen1Panel"/>
-		<panel name="MenuYellow1Panel"/>
-		<panel name="MenuBlue1Panel"/>
+	<screen name="TimerSanityConflict"  position="fill" title="Timer Overview" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget name="timer1" position="10*f,82*f" size="660*f,100*f" itemHeight="50*f" rowSplit="26*f" setEventNameFont="Regular;22*f" 
+			setServiceNameFont="Regular;20*f" setFont="Regular;18*f" satPosLeft="166*f" scrollbarMode="showNever"/>
+		<widget name="timer2" position="10*f,232*f" size="660*f,100*f" itemHeight="50*f" rowSplit="26*f" setEventNameFont="Regular;22*f" 
+			setServiceNameFont="Regular;20*f" setFont="Regular;18*f" satPosLeft="166*f" scrollbarMode="showNever"/>
+		<widget name="list" position="10*f,382*f" size="660*f,270*f" itemHeight="26*f" font="Regular;18*f" valign="center" scrollbarMode="showOnDemand"/>
 	</screen>
-	<screen name="TimerSelection" position="center,center" size="560,550">
-		<widget name="timerlist" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" position="0,0" size="560,533" scrollbarMode="showOnDemand"/>
+	<screen name="TimerSelection" position="fill" title="Timer selection" flags="wfNoBorder"><!-- not tested -->
+		<panel name="__PigTemplate__"/>
+		<widget name="timerlist" position="10*f,82*f" size="660*f,570*f" scrollbarMode="showOnDemand" itemHeight="60*f" rowSplit="30*f" iconMargin="10*f"
+			setEventNameFont="Regular;22*f" setServiceNameFont="Regular;22*f" setFont="Regular;20*f" satPosLeft="166*f" zPosition="2" foregroundColor="window-fg"/>
 	</screen>
 
 	<!-- Infomation Screens -->
-	<screen name="AboutOE" position="center,center" size="560,450">
-		<widget source="lab1" render="Label" position="30,0" size="458,25" font="Boldit;24" transparent="1"/>
-		<widget source="lab2" render="Label" position="30,30" size="458,25" font="Italic;19" transparent="1"/>
-		<widget source="lab3" render="Label" position="30,60" size="458,25" font="Italic;19" transparent="1"/>
-		<widget name="AboutScrollLabel" position="30,90" size="458,300" font="Regular;20" transparent="1"/>
-		<ePixmap pixmap="buttons/key_info.png" position="525,0" size="35,25" alphatest="blend" transparent="1"/>
-		<ePixmap pixmap="buttons/green.png" position="0,410" size="140,40" alphatest="on"/>
-		<widget name="key_green" position="0,410" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1"/>
+	<screen name="AboutOE" position="fill" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget source="lab1" render="Label" position="695*f, 420*f" size="575*f,30*f" font="Regular;24*f" zPosition="2" foregroundColor="event-frgrnd" halign="center"/>
+		<widget source="lab2" render="Label" position="695*f, 454*f" size="575*f,30*f" font="Regular;22*f" zPosition="2" foregroundColor="window-fg" halign="center"/>
+		<widget source="lab3" render="Label" position="695*f, 488*f" size="575*f,30*f" font="Regular;22*f" zPosition="2" foregroundColor="window-fg" halign="center"/>
+		<widget name="AboutScrollLabel" font="Regular;22*f" position="10*f,82*f" size="660*f,560*f" zPosition="2" split="1" dividechar=":" colposition="0"/>
+		<eLabel text="Skin: Default-OE-A skin, by Andy Blackburn" position="695*f, 560*f" size="575*f,30*f" font="Regular;22*f" foregroundColor="window-fg" 
+			halign="center" zPosition="1"/>
+		<eLabel text="Adapted for multi-resolution by Huevos" position="695*f, 590*f" size="575*f,30*f" font="Regular;22*f" foregroundColor="window-fg" halign="center" 
+			zPosition="1"/>
 	</screen>
 	<screen name="TranslationInfo" position="center,center" size="420,350" title="Translation">
 		<eLabel position="10,20" size="380,23" font="Regular;23" text="Translation:"/>
@@ -1204,7 +1227,7 @@
 		<widget name="yellow" position="423,325" size="150,20" zPosition="1" font="Regular;20" halign="left" valign="center" backgroundColor="window-bg" transparent="1"/>
 		<widget name="blue" position="618,325" size="150,20" zPosition="1" font="Regular;20" halign="left" valign="center" backgroundColor="window-bg" transparent="1"/>
 	</screen>
-	<screen name="NetworkSetPassword" position="0,0" size="541,720" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="NetworkSetPassword" position="0,0" size="541,720" flags="wfNoBorder" backgroundColor="transparent"><!-- not used by OpenViX -->
 		<panel name="MenuPanel"/>
 		<panel name="MenuRed2Panel"/>
 		<panel name="MenuGreen2Panel"/>
@@ -2354,7 +2377,7 @@ self.autoResize()
 	
 	<screen name="SkinSelector" position="fill" flags="wfNoBorder">
 		<panel name="__PigTemplate__"/>
-		<panel name="__DescriptionTemplate__"/> position="10*f,82*f" size="660*f,570*f"
+		<panel name="__DescriptionTemplate__"/>
 		<widget name="Preview" conditional="Preview" position="842*f,e-255*f" size="280*f,210*f" alphatest="on" zPosition="5"/>
 		<widget name="preview" conditional="preview" position="842*f,e-255*f" size="280*f,210*f" alphatest="on" zPosition="5"/>
 		<widget name="SkinList" conditional="SkinList" position="10*f,82*f" size="660*f,540*f" itemHeight="30*f" foregroundColor="window-fg" backgroundColor="window-bg" 
