@@ -1183,17 +1183,19 @@
 		<eLabel text="Adapted for multi-resolution by Huevos" position="695*f, 590*f" size="575*f,30*f" font="Regular;22*f" foregroundColor="window-fg" halign="center" 
 			zPosition="1"/>
 	</screen>
-	<screen name="TranslationInfo" position="center,center" size="420,350" title="Translation">
-		<eLabel position="10,20" size="380,23" font="Regular;23" text="Translation:"/>
-		<widget source="TranslatorName" render="Label" position="10,55" size="380,20" font="Regular;20"/>
-		<widget source="TranslationInfo" render="Label" position="10,100" size="380,250" font="Regular;20"/>
+	<screen name="TranslationInfo" flags="wfNoBorder" position="fill">
+		<panel name="__PigTemplate__"/>
+		<widget source="TranslatorName" render="Label" position="10*f,82*f" size="660*f,80*f" font="Regular;18*f" halign="center" backgroundColor="background" transparent="1"/>
+		<widget source="TranslationInfo" render="Label" position="10*f,192*F" size="660*f,460*f" font="Regular;18*f" halign="center" backgroundColor="background" transparent="1"/>
 	</screen>
-	<screen name="SystemMemoryInfo" position="center,center" size="560,400">
-		<widget source="lab1" render="Label" position="30,0" size="458,25" font="Boldit;24" transparent="0" zPosition="2"/>
-		<widget source="lab2" render="Label" position="30,30" size="458,25" font="Italic;19" transparent="0" zPosition="2"/>
-		<widget name="AboutScrollLabel" position="30,60" size="458,340" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand"/>
+	<screen name="SystemMemoryInfo" flags="wfNoBorder" position="fill">
+		<panel name="__PigTemplate__"/>position="10*f,82*f" size="660*f,570*f"
+		<widget source="lab1" render="Label" position="10*f,82*f" size="660*f,25*f" font="Boldit;24*f" transparent="0" zPosition="2"/>
+		<widget source="lab2" render="Label" position="10*f,112*f" size="660*f,25*f" font="Italic;19*f" transparent="0" zPosition="2"/>
+		<widget name="AboutScrollLabel" position="10*f,142*f" size="660*f,510*f" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand"/>
 	</screen>
-	<screen name="SystemNetworkInfo" position="center,center" size="560,500">
+	<screen name="SystemNetworkInfo" flags="wfNoBorder" position="fill">
+		<panel name="__PigTemplate__"/>position="10*f,82*f" size="660*f,570*f"
 		<widget name="AboutScrollLabel" position="30,0" size="458,375" valign="left" font="Regular;20" transparent="1"/>
 		<ePixmap pixmap="div-h.png" position="0,400" zPosition="1" size="560,2"/>
 		<widget source="IFtext" render="Label" position="30,405" size="120,21" zPosition="10" font="Regular;20" halign="left" transparent="1" backgroundColor="window-bg"/>
@@ -1508,13 +1510,16 @@
 		<panel name="__KeyTextTemplate__"/>
 		<widget name="list" position="10*f,82*f" size="660*f,572*f" scrollbarMode="showOnDemand"/>
 	</screen>
-	<screen name="RecordTimerQuestion" position="center,center" size="380,70" zPosition="5" flags="wfNoBorder">
-		<widget name="text" position="0,0" size="0,0" font="Regular;22"/>
-		<widget name="list" position="10,10" size="360,50" enableWrapAround="1"/>
+	<screen name="RecordTimerQuestion" position="center,center" size="234*f,198*f" zPosition="5" flags="wfNoBorder">
+		<widget name="text" position="0,0" size="0,0" font="Regular;21"/>
+		<widget name="list" position="10*f,10*f" size="220*f,0" enableWrapAround="1"/>
+		<applet type="onLayoutFinish">
+self.autoResize()
+		</applet>
 	</screen>
-	<screen name="RemoveTimerQuestion" position="center,center" size="503,130" zPosition="5" flags="wfNoBorder">
-		<widget name="text" position="0,0" size="0,0" font="Regular;22"/>
-		<widget name="list" position="10,10" size="220,50" enableWrapAround="1"/>
+	<screen name="RemoveTimerQuestion" position="center,center" size="300*f,130*f" zPosition="5" flags="wfNoBorder">
+		<widget name="text" position="10*f,0" size="280*f,0" font="Regular;22*f"/>
+		<widget name="list" position="10*f,20*f" size="280*f,0" font="Regular;22*f" itemHeight="30*f" zPosition="2" enableWrapAround="1"/>
 		<applet type="onLayoutFinish">
 self.autoResize()
 		</applet>
@@ -1968,21 +1973,64 @@ self.autoResize()
 		<panel name="MenuYellow1Panel"/>
 		<panel name="MenuBlue1Panel"/>
 	</screen>
-	<screen name="__MessageBoxTemplate__">
-		<widget name="text" position="65*f,8*f" size="520*f,0" font="Regular;22*f"/>
-		<widget name="ErrorPixmap" pixmap="icons/input_error.png" position="0,0" size="53*f,53*f" alphatest="on" scale="1"/>
-		<widget name="QuestionPixmap" pixmap="icons/input_question.png" position="0,0" size="53*f,53*f" alphatest="on" scale="1"/>
-		<widget name="InfoPixmap" pixmap="icons/input_info.png" position="0,0" size="53*f,53*f" alphatest="on" scale="1"/>
-		<widget name="list" position="100*f,100*f" size="520*f,0" itemHeight="24*f" font="Regular;20*f"/>
+		<screen name="MessageBox" title="Message" position="fill" flags="wfNoBorder">
+		<panel name="__PigTemplate__"/>
+		<widget name="text" position="70*f,82*f" size="600*f,510*f" font="Regular;22*f"/>
+		<widget name="ErrorPixmap" pixmap="icons/input_error.png" position="10*f,82*f" size="53*f,53*f" alphatest="blend"/>
+		<widget name="QuestionPixmap" pixmap="icons/input_question.png" position="10*f,82*f" size="53*f,53*f" alphatest="blend"/>
+		<widget name="InfoPixmap" pixmap="icons/input_info.png" position="10*f,82*f" size="53*f,53*f" alphatest="blend"/>
+		<widget name="list" position="695*f,410*f" size="575*f,234*f" itemHeight="26*f" font="Regular;20*f" scrollbarMode="showOnDemand"/>
+	</screen>
+	<screen name="MessageBoxSimple" position="center,center" size="640*f,10*f" title="Message" zPosition="10" flags="wfNoBorder">
+		<widget source="Title" render="Label" position="2*f,2*f" size="400*f,20*f" zPosition="1" font="Regular;18*f" valign="center" halign="left"/><!-- No title shown -->
+		<widget name="text" position="66*f,8*f" size="520*f,0" font="Regular;22*f" zPosition="2"/>
+		<widget name="ErrorPixmap" pixmap="icons/input_error.png" position="10*f,10*f" size="53*f,53*f" zPosition="2" alphatest="blend" scale="1"/>
+		<widget name="QuestionPixmap" pixmap="icons/input_question.png" position="10*f,10*f" size="53*f,53*f" zPosition="2" alphatest="blend" scale="1"/>
+		<widget name="InfoPixmap" pixmap="icons/input_info.png" position="10*f,10*f" size="53*f,53*f" zPosition="2" alphatest="blend" scale="1"/>
+		<widget name="list" position="100*f,100*f" size="480*f,0" itemHeight="25*f" font="Regular;20*f" zPosition="3"/>
 		<applet type="onLayoutFinish">
-self.autoResize()
+from enigma import eSize, ePoint
+from skin import getSkinFactor
+f = getSkinFactor()
+if self.timerRunning:
+	titleheight = int(20*f)
+else:
+	titleheight = 0
+	self.setTitle(&quot;&quot;)
+orgwidth = self.instance.size().width()
+orgheight = self.instance.size().height()
+orgpos = self.instance.position()
+textsize = self[&quot;text&quot;].getSize()
+textsize = (textsize[0] + int(50*f), textsize[1] + int(20*f))
+wsizex = textsize[0] + int(60*f)
+wsizey = textsize[1]
+itemHeight = int(25*f)
+lenlist = len(self.list) * itemHeight
+if (lenlist &gt; int(125*f)):
+	lenlist = int(125*f)
+if (int(64*f) &gt; wsizey):
+	wsizey = int(64*f)
+if self.type == self.TYPE_YESNO:
+	wsizey += lenlist + int(10*f)
+if (int(280*f) &gt; wsizex):
+	wsizex = int(280*f)
+wsize = (wsizex, wsizey + titleheight)
+self.instance.resize(eSize(*wsize))
+self[&quot;text&quot;].instance.move(ePoint(int(64*f), int(8*f + titleheight)))
+self[&quot;text&quot;].instance.resize(eSize(*textsize))
+self[&quot;ErrorPixmap&quot;].instance.move(ePoint(int(4*f), int(4*f + titleheight)))
+self[&quot;ErrorPixmap&quot;].instance.resize(eSize(int(53*f),int(53*f)))
+self[&quot;QuestionPixmap&quot;].instance.move(ePoint(int(4*f), int(4*f + titleheight)))
+self[&quot;QuestionPixmap&quot;].instance.resize(eSize(int(53*f),int(53*f)))
+self[&quot;InfoPixmap&quot;].instance.move(ePoint(int(4*f), int(4*f + titleheight)))
+self[&quot;InfoPixmap&quot;].instance.resize(eSize(int(53*f),int(53*f)))
+if self.type == self.TYPE_YESNO:
+	listsize = (wsizex-6, lenlist)
+	self[&quot;list&quot;].instance.move(ePoint(3, int(wsizey - lenlist + titleheight - 3)))
+	self[&quot;list&quot;].instance.resize(eSize(*listsize))
+newwidth = wsize[0]
+self.instance.move(ePoint(int(orgpos.x() + (orgwidth - newwidth) // 2), int(orgpos.y() + (orgheight - wsizey) // 2)))
 		</applet>
-	</screen>
-	<screen name="MessageBox">
-		 <panel name="__MessageBoxTemplate__"/>
-	</screen>
-	<screen name="MessageBoxSimple">
-		<panel name= "__MessageBoxTemplate__"/>
 	</screen>
 	<screen name="InputDeviceSelection" position="center,center" size="560,550">
 		<widget source="list" render="Listbox" position="0,0" size="560,496" foregroundColor="window-fg" backgroundColor="window-bg" transparent="0" scrollbarMode="showOnDemand" enableWrapAround="1">
