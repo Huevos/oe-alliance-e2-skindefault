@@ -151,8 +151,10 @@
 	</screen>
 	
 	<screen name="__TitleBarPiconTemplate__">
-		<widget source="Service" render="PiconBg" position="18*f,818*f" size="104*f,63*f" zPosition="5" alphatest="blend" backgroundColor="fullscreen-topbar-bkgrnd" scale="1"/>
-		<widget source="Service" render="Picon" position="20*f,9*f" size="100*f,60*f" zPosition="5" alphatest="blend" backgroundColor="fullscreen-topbar-bkgrnd" scale="1">
+		<widget source="Service" render="PiconBg" position="18*f,818*f" size="104*f,63*f" zPosition="5" alphatest="blend" 
+			backgroundColor="fullscreen-topbar-bkgrnd" scale="1"/>
+		<widget source="Service" render="Picon" position="20*f,9*f" size="100*f,60*f" zPosition="5" alphatest="blend" 
+			backgroundColor="fullscreen-topbar-bkgrnd" scale="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
 	</screen>
@@ -217,33 +219,41 @@
 	<!-- Red button text -->
 	<screen name="__ButtonTextRed__"><!-- position="200*f,e-34*f" -->
 		<widget objectTypes="key_red,Label,Button" name="key_red" 
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 		<widget objectTypes="key_red,StaticText" source="key_red" render="Label" 
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 	</screen>
 
 	<!-- Green button text -->
 	<screen name="__ButtonTextGreen__"><!-- position="480*f,e-34*f" -->
 		<widget objectTypes="key_green,Label,Button" name="key_green" 
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 		<widget objectTypes="key_green,StaticText" source="key_green" render="Label" 
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 	</screen>
 
 	<!-- Yellow button text -->
 	<screen name="__ButtonTextYellow__"><!-- position="760*f,e-34*f" -->
 		<widget objectTypes="key_yellow,Label,Button" name="key_yellow" 
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 		<widget objectTypes="key_yellow,StaticText" source="key_yellow" render="Label"
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 	</screen>
 
 	<!-- Blue button text -->
 	<screen name="__ButtonTextBlue__"><!-- position="1040*f,e-34*f" -->
 		<widget objectTypes="key_blue,Label,Button" name="key_blue" 
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 		<widget objectTypes="key_blue,StaticText" source="key_blue" render="Label"
-			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" font="Regular;20*f" halign="left" valign="center"/>
+			position="0,0" size="240*f,25*f" foregroundColor="menu-buttons-frgrnd" backgroundColor="infobar_collab_back" zPosition="1" transparent="1" 
+			font="Regular;20*f" halign="left" valign="center"/>
 	</screen>
 
 	<!-- Individual Button Templates -->
@@ -304,28 +314,28 @@
 		<panel name="__VKeyIconPanel__"/>
 	</screen>
 
-	<screen name="__KeyTextAutoTemplate__"><!-- show with Components.Sources.Boolean -->
+	<screen name="__KeyTextAutoTemplate__"><!-- show with e.g. Components.Sources.Boolean -->
 		<widget source="key_text" conditional="key_text" render="Pixmap" pixmap="buttons/key_text.png" alphatest="blend" position="5*f,e-34*f" 
 			size="35*f,25*f" scale="1">
 			<convert type="ConditionalShowHide"/>
 		</widget>
 	</screen>
 
-	<screen name="__KeyHelpAutoTemplate__"><!-- show with Components.Sources.Boolean -->
+	<screen name="__KeyHelpAutoTemplate__"><!-- show with e.g. Components.Sources.Boolean -->
 		<widget source="key_help" conditional="key_help" render="Pixmap" pixmap="buttons/key_help.png" alphatest="blend" position="45*f,e-34*f" 
 			size="35*f,25*f" scale="1">
 			<convert type="ConditionalShowHide"/>
 		</widget>
 	</screen>
 
-	<screen name="__KeyMenuAutoTemplate__"><!-- show with Components.Sources.Boolean -->
+	<screen name="__KeyMenuAutoTemplate__"><!-- show with e.g. Components.Sources.Boolean -->
 		<widget source="key_menu" conditional="key_menu" render="Pixmap" pixmap="buttons/key_menu.png" alphatest="blend" position="85*f,e-34*f" 
 			size="35*f,25*f" scale="1">
 			<convert type="ConditionalShowHide"/>
 		</widget>
 	</screen>
 
-	<screen name="__KeyInfoAutoTemplate__"><!-- show with Components.Sources.Boolean -->
+	<screen name="__KeyInfoAutoTemplate__"><!-- show with e.g. Components.Sources.Boolean -->
 		<widget source="key_info" conditional="key_info" render="Pixmap" pixmap="buttons/key_info.png" alphatest="blend" position="125*f,e-34*f" 
 			size="35*f,25*f" scale="1">
 			<convert type="ConditionalShowHide"/>
@@ -402,22 +412,29 @@
 	</screen>
 
 	<screen name="__DescriptionTemplate__">
-		<widget name="description" objectTypes="description,Button,Label" position="695*f, 410*f"  size="575*f, 232*f" font="Regular;20*f" valign="top" halign="block"/>
-		<widget source="description" render="Label" objectTypes="description,StaticText" position="695*f, 410*f"  size="575*f, 232*f" font="Regular;20*f" valign="top" halign="block"/>
+		<widget name="description" objectTypes="description,Button,Label" position="695*f, 410*f"  size="575*f, 232*f" font="Regular;20*f" valign="top" 
+			halign="block"/>
+		<widget source="description" render="Label" objectTypes="description,StaticText" position="695*f, 410*f"  size="575*f, 232*f" font="Regular;20*f" 
+			valign="top" halign="block"/>
 	</screen>
 
 	<screen name="__IntroductionTemplate__">
-		<widget name="introduction" objectTypes="introduction,Button,Label" position="10*f,643*f" zPosition="1000" size="660*f,30*f" font="Regular;20*f" valign="top" halign="block"/>
-		<widget source="introduction" render="Label" objectTypes="introduction,StaticText" position="10*f,643*f" zPosition="1000" size="660*f,30*f" font="Regular;20*f" valign="top" halign="block"/>
+		<widget name="introduction" objectTypes="introduction,Button,Label" position="10*f,643*f" zPosition="1000" size="660*f,30*f" font="Regular;20*f" 
+			valign="top" halign="block"/>
+		<widget source="introduction" render="Label" objectTypes="introduction,StaticText" position="10*f,643*f" zPosition="1000" size="660*f,30*f" 
+			font="Regular;20*f" valign="top" halign="block"/>
 	</screen>
 
 	<screen name="__FootnoteTemplate__">
-		<widget name="footnote" objectTypes="footnote,Button,Label" position="695*f,643*f" zPosition="1000" size="575*f,30*f" font="Regular;20*f" valign="top" halign="block"/>
-		<widget source="footnote" render="Label" objectTypes="footnote,StaticText" position="695*f,643*f" zPosition="1000" size="575*f,30*f" font="Regular;20*f" valign="top" halign="block"/>
+		<widget name="footnote" objectTypes="footnote,Button,Label" position="695*f,643*f" zPosition="1000" size="575*f,30*f" font="Regular;20*f" valign="top" 
+			halign="block"/>
+		<widget source="footnote" render="Label" objectTypes="footnote,StaticText" position="695*f,643*f" zPosition="1000" size="575*f,30*f" font="Regular;20*f" 
+			valign="top" halign="block"/>
 	</screen>
 	
 	<screen name="__HelpWindowTemplate__">
-		<widget name="HelpWindow" conditional="HelpWindow" pixmap="buttons/vkey_icon.png" position="788*f,278*f" zPosition="1" size="1,1" transparent="0" alphatest="on" scale="1"/>
+		<widget name="HelpWindow" conditional="HelpWindow" pixmap="buttons/vkey_icon.png" position="788*f,278*f" zPosition="1" size="1,1" transparent="0" 
+			alphatest="on" scale="1"/>
 	</screen>
 
 	<screen name="__MenuListTemplate__" position="fill" flags="wfNoBorder">
@@ -447,17 +464,22 @@
 	</screen>
 
 	<screen name="__TeamTemplate__">
-		<widget source="lab1" conditional="lab1" render="Label" position="695*f, 420*f" size="575*f,30*f" font="Regular;24*f" zPosition="2" foregroundColor="orange" halign="center"/>
-		<widget source="lab2" conditional="lab2" render="Label" position="695*f, 454*f" size="575*f,30*f" font="Regular;22*f" zPosition="2" foregroundColor="window-fg" halign="center"/>
-		<widget source="lab3" conditional="lab3" render="Label" position="695*f, 488*f" size="575*f,30*f" font="Regular;22*f" zPosition="2" foregroundColor="window-fg" halign="center"/>	
+		<widget source="lab1" conditional="lab1" render="Label" position="695*f, 420*f" size="575*f,30*f" font="Regular;24*f" zPosition="2" 
+			foregroundColor="orange" halign="center"/>
+		<widget source="lab2" conditional="lab2" render="Label" position="695*f, 454*f" size="575*f,30*f" font="Regular;22*f" zPosition="2" 
+			foregroundColor="window-fg" halign="center"/>
+		<widget source="lab3" conditional="lab3" render="Label" position="695*f, 488*f" size="575*f,30*f" font="Regular;22*f" zPosition="2" 
+			foregroundColor="window-fg" halign="center"/>	
 	</screen>
 	
 	<screen name="__ScrollLabelTemplate__">
-		<widget name="ScrollLabel" font="Regular;22*f" position="10*f,82*f" size="660*f,560*f" zPosition="2" split="1" dividechar=":" colposition="0" halign="block"/>
+		<widget name="ScrollLabel" font="Regular;22*f" position="10*f,82*f" size="660*f,560*f" zPosition="2" split="1" dividechar=":" colposition="0" 
+			halign="block"/>
 	</screen>
 	
 	<screen name="__AboutScrollLabelTemplate__">
-		<widget name="AboutScrollLabel" font="Regular;22*f" position="10*f,82*f" size="660*f,560*f" zPosition="2" split="1" dividechar=":" colposition="0" halign="block" />
+		<widget name="AboutScrollLabel" font="Regular;22*f" position="10*f,82*f" size="660*f,560*f" zPosition="2" split="1" dividechar=":" colposition="0" 
+			halign="block" />
 	</screen>
 	
 	<screen name="__FeedsStatusTemplate__" position="fill" flags="wfNoBorder">
@@ -476,10 +498,14 @@
 	</screen>
 	
 	<screen name="__NetworkStatusTemplate__" position="fill" flags="wfNoBorder">
-		<widget source="IFtext" render="Label" position="10*f,e-128*f" size="120*f,24*f" zPosition="10" font="Regular;22*f" halign="left" transparent="1" backgroundColor="window-bg"/>
-		<widget source="IF" render="Label" position="130*f,e-128*f" size="500*f,24*f" zPosition="10" font="Regular;22*f" halign="left" transparent="1" backgroundColor="window-bg"/>
-		<widget source="Statustext" render="Label" position="10*f,e-90*f" size="120*f,24*f" zPosition="10" font="Regular;22*f" halign="left" transparent="1" backgroundColor="window-bg"/>
-		<widget name="statuspic" pixmaps="icons/lock_on.png,icons/lock_off.png" position="130*f,e-92*f" zPosition="10" size="25*f,24*f" transparent="1" alphatest="on" scale="1"/>
+		<widget source="IFtext" render="Label" position="10*f,e-128*f" size="120*f,24*f" zPosition="10" font="Regular;22*f" halign="left" transparent="1" 
+			backgroundColor="window-bg"/>
+		<widget source="IF" render="Label" position="130*f,e-128*f" size="500*f,24*f" zPosition="10" font="Regular;22*f" halign="left" transparent="1" 
+			backgroundColor="window-bg"/>
+		<widget source="Statustext" render="Label" position="10*f,e-90*f" size="120*f,24*f" zPosition="10" font="Regular;22*f" halign="left" transparent="1" 
+			backgroundColor="window-bg"/>
+		<widget name="statuspic" pixmaps="icons/lock_on.png,icons/lock_off.png" position="130*f,e-92*f" zPosition="10" size="25*f,24*f" transparent="1" 
+			alphatest="on" scale="1"/>
 	</screen>
 
 	<screen name="__AboutTemplate__">
@@ -736,16 +762,16 @@
 		</panel>
 
 		<ePixmap pixmap="icons/clock.png" position="820*f,169*f" size="20*f,20*f" zPosition="1" alphatest="blend" scale="1"/>
-		<widget source="global.CurrentTime" render="Label" position="838*f,170*f" size="59*f,20*f" font="Regular;21*f" zPosition="1" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="838*f,170*f" size="59*f,20*f" font="Regular;21*f" zPosition="1" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="898*f,173*f" size="35*f,18*f" font="Regular;17*f" zPosition="1" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="898*f,173*f" size="35*f,18*f" font="Regular;17*f" zPosition="1" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format::%S</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="815*f,197*f" size="115*f,18*f" font="Regular;18*f" zPosition="1" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="center" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="815*f,197*f" size="115*f,18*f" font="Regular;18*f" zPosition="1" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="center" valign="top">
 			<convert type="ClockToText">Format:%a %d/%m/%y</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="815*f,217*f" size="115*f,18*f" font="Regular;17*f" foregroundColor="infobar-frgrnd" 
@@ -816,7 +842,8 @@
 	</screen>
 	<screen name="QuickEPG" flags="wfNoBorder" position="center,415*f" size="974*f,295*f" backgroundColor="transparent">
 		<ePixmap position="0,0" size="974*f,295*f" pixmap="infobar/quickepg-infobbar.png" alphatest="on" zPosition="-1" scale="1"/>
-		<widget source="Event" render="Label" position="25*f,15*f" size="935*f,135*f" font="Regular;22*f" foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1" valign="top" zPosition="2">
+		<widget source="Event" render="Label" position="25*f,15*f" size="935*f,135*f" font="Regular;22*f" foregroundColor="infobar-frgrnd" 
+			backgroundColor="infobar_sunken" transparent="1" valign="top" zPosition="2">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 		<panel position="44*f,e-142*f" size="625*f,34*f">
@@ -854,23 +881,23 @@
 			<convert type="ClockToText">Format:%a %d/%m/%y</convert>
 		</widget>
 		<ePixmap pixmap="icons/clock.png" position="600*f,44*f" zPosition="1" size="20*f,20*f" alphatest="blend" scale="1"/>
-		<widget source="global.CurrentTime" render="Label" position="618*f,44*f" zPosition="1" size="59*f,20*f" font="Regular;21*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="618*f,44*f" zPosition="1" size="59*f,20*f" font="Regular;21*f" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="678*f,47*f" zPosition="1" size="35*f,18*f" font="Regular;17" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="678*f,47*f" zPosition="1" size="35*f,18*f" font="Regular;17" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format::%S</convert>
 		</widget>
 		<panel position="150*f,46*f" size="296*f,22*f">
 			<panel name="__InfoBarIconsTemplate__"/>
 		</panel>
-		<widget source="session.CurrentService" render="Label" position="455*f,80*f" size="200*f,24*f" font="Regular;18*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar_sunken" transparent="1" halign="right">
+		<widget source="session.CurrentService" render="Label" position="455*f,80*f" size="200*f,24*f" font="Regular;18*f" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1" halign="right">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="90*f,120*f" size="200*f,24*f" font="Italic;18*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar_sunken" transparent="1" halign="left" valign="center">
+		<widget source="session.CurrentService" render="Label" position="90*f,120*f" size="200*f,24*f" font="Italic;18*f" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar_sunken" transparent="1" halign="left" valign="center">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<ePixmap position="90*f,100*f" size="563*f,18*f" pixmap="infobar/Mediaplayerbar_gray.png" alphatest="blend" scale="1"/>
@@ -897,8 +924,8 @@
 	<screen name="DVDPlayer" flags="wfNoBorder" position="center,520*f" size="750*f,190*f" backgroundColor="transparent"> <!-- screen needs testing -->
 		<ePixmap position="0,0" zPosition="-1" size="750*f,190*f" pixmap="infobar/movie_infobar-bg.png" scale="1"/>
 		<ePixmap pixmap="icons/clock.png" position="580*f,12*f" zPosition="1" size="20*f,20*f" alphatest="blend" scale="1"/>
-		<widget source="global.CurrentTime" render="Label" position="598*f,14*f" zPosition="1" size="59*f,20*f" font="Regular;21*f" foregroundColor="infobar-frgrnd" 
-			halign="right" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="598*f,14*f" zPosition="1" size="59*f,20*f" font="Regular;21*f" 
+			foregroundColor="infobar-frgrnd" halign="right" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="658*f,17*f" zPosition="1" size="35*f,18*f" font="Regular;17*f" valign="top" 
@@ -915,7 +942,8 @@
 		<ePixmap pixmap="icons/icon_dolby.png" position="480*f,52*f" zPosition="1" size="26*f,16*f" alphatest="on" scale="1"/>
 		<widget name="audioLabel" position="510*f,50*f" size="130*f,22*f" font="Regular;18*f" backgroundColor="infobar_sunken" transparent="1" 
 			foregroundColor="infobar-frgrnd"/>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_txt.png" position="330*f,52*f" zPosition="1" size="26*f,16*f" alphatest="blend" scale="1">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/icon_txt.png" position="330*f,52*f" zPosition="1" size="26*f,16*f" 
+			alphatest="blend" scale="1">
 			<convert type="ServiceInfo">HasTelext</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
@@ -950,16 +978,16 @@
 			<panel name="__InfoBarIconsTemplate__"/>
 		</panel>
 		<ePixmap pixmap="icons/clock.png" position="700*f,12*f" zPosition="1" size="20*f,20*f" alphatest="blend" scale="1"/>
-		<widget source="global.CurrentTime" render="Label" position="724*f,e-137*f" zPosition="1" size="55*f,20*f" font="Regular;21*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="724*f,e-137*f" zPosition="1" size="55*f,20*f" font="Regular;21*f" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" halign="right" valign="top">
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="780*f,e-134*f" zPosition="1" size="35*f,18*f" font="Regular;17*f" foregroundColor="infobar-frgrnd" 
-			backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="780*f,e-134*f" zPosition="1" size="35*f,18*f" font="Regular;17*f" 
+			foregroundColor="infobar-frgrnd" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format::%S</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="816*f,e-137*f" zPosition="1" size="115*f,20*f" font="Regular;18*f" foregroundColor="infobar-frgrnd" 
-			halign="center" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
+		<widget source="global.CurrentTime" render="Label" position="816*f,e-137*f" zPosition="1" size="115*f,20*f" font="Regular;18*f" 
+			foregroundColor="infobar-frgrnd" halign="center" backgroundColor="infobar-bkgrnd" transparent="1" noWrap="1" valign="top">
 			<convert type="ClockToText">Format:%a %d/%m/%y</convert>
 		</widget>
 		<panel position="43*f,e-104*f" size="104*f,63*f">
@@ -978,7 +1006,8 @@
 			<convert type="RdsInfo">RasInteractiveAvailable</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="RdsDecoder" render="Label" position="100*f,e-30*f" size="620*f,30*f" font="LCD;20*f" backgroundColor="#00d9dee2" transparent="1" halign="center" valign="center" foregroundColor="foreground">
+		<widget source="RdsDecoder" render="Label" position="100*f,e-30*f" size="620*f,30*f" font="LCD;20*f" backgroundColor="#00d9dee2" transparent="1" 
+			halign="center" valign="center" foregroundColor="foreground">
 			<convert type="RdsInfo">RadioText</convert>
 		</widget>
 	</screen>
@@ -1007,8 +1036,8 @@
 		<widget name="PositionGauge" position="650*f,633*f" size="563*f,18*f" pointer="infobar/Mediaplayerbar_purple.png:563*f,0" 
 			seek_pointer="infobar/Mediaplayerbar_purple.png:563*f,0" zPosition="3" transparent="1"/>
 		<widget name="repeat" position="1190*f,620*f" size="26*f,20*f" pixmaps="icons/ico_noreplay.png,icons/ico_replay.png" transparent="1" alphatest="blend"/>
-		<widget source="session.CurrentService" render="Label" position="650*f,654*f" size="120*f,18*f" foregroundColor="#009f40ca" font="Italic;18*f" halign="left" 
-			valign="center" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="650*f,654*f" size="120*f,18*f" foregroundColor="#009f40ca" font="Italic;18*f" 
+			halign="left" valign="center" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="1170*f,654*f" size="120*f,18*f" font="Italic;18*f" halign="left" valign="center" 
@@ -1086,8 +1115,10 @@
 	</screen>
 	<screen name="TranslationInfo" flags="wfNoBorder" position="fill">
 		<panel name="__PigTemplate__"/>
-		<widget source="TranslatorName" render="Label" position="10*f,82*f" size="660*f,80*f" font="Regular;18*f" halign="center" backgroundColor="background" transparent="1"/>
-		<widget source="TranslationInfo" render="Label" position="10*f,192*F" size="660*f,460*f" font="Regular;18*f" halign="center" backgroundColor="background" transparent="1"/>
+		<widget source="TranslatorName" render="Label" position="10*f,82*f" size="660*f,80*f" font="Regular;18*f" halign="center" backgroundColor="background" 
+			transparent="1"/>
+		<widget source="TranslationInfo" render="Label" position="10*f,192*F" size="660*f,460*f" font="Regular;18*f" halign="center" backgroundColor="background" 
+			transparent="1"/>
 	</screen>
 	<screen name="SystemMemoryInfo" flags="wfNoBorder" position="fill">
 		<panel name="__PigTemplate__"/>
@@ -1154,13 +1185,15 @@
 	</screen>
 	<screen name="AdapterSetupConfiguration"  position="fill" flags="wfNoBorder">
 		<panel name="__PigTemplate__"/>
-		<widget name="menulist" position="10*f,82*f" size="660*f,570*f" itemHeight="25*f" font="Regular;22*f" transparent="0" zPosition="2" scrollbarMode="showOnDemand"/>
+		<widget name="menulist" position="10*f,82*f" size="660*f,570*f" itemHeight="25*f" font="Regular;22*f" transparent="0" zPosition="2" 
+			scrollbarMode="showOnDemand"/>
 		<panel name="__DescriptionTemplate__"/>
 		<panel name="__NetworkStatusTemplate__"/>
 	</screen>
 	<screen name="NetworkMountsMenu" position="fill" flags="wfNoBorder">
 		<panel name="__PigTemplate__"/>
-		<widget name="menulist" position="10*f,82*f" size="550*f,570*f" itemHeight="25*f" font="Regular;22*f" transparent="0" zPosition="2" scrollbarMode="showOnDemand"/>
+		<widget name="menulist" position="10*f,82*f" size="550*f,570*f" itemHeight="25*f" font="Regular;22*f" transparent="0" zPosition="2" 
+			scrollbarMode="showOnDemand"/>
 		<panel name="__IntroductionTemplate__"/>
 	</screen>
 	<!-- Password -->
